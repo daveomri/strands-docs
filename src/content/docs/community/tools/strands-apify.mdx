@@ -1,0 +1,80 @@
+---
+project:
+  pypi: https://pypi.org/project/strands-agents-tools/
+  github: https://github.com/strands-agents/tools
+  maintainer: apify
+service:
+  name: Apify
+  link: https://apify.com/
+title: strands-apify
+community: false
+description: Apify web scraping and automation
+integrationType: tool
+languages: Python
+sidebar:
+  label: "apify"
+---
+
+The [Apify tools](https://github.com/strands-agents/tools) give your Strands agent web scraping, data extraction, and automation capabilities through the [Apify platform](https://apify.com/). You can run any of the 4,000+ Actors in Apify Store, execute saved tasks, fetch dataset results, and scrape individual URLs to markdown.
+
+## Installation
+
+```bash
+pip install strands-agents-tools[apify]
+```
+
+## Usage
+
+```python
+from strands import Agent
+from strands_tools.apify import (
+    apify_run_actor,
+    apify_run_actor_and_get_dataset,
+    apify_get_dataset_items,
+    apify_run_task,
+    apify_run_task_and_get_dataset,
+    apify_scrape_url,
+)
+
+agent = Agent(tools=[
+    apify_run_actor,
+    apify_run_actor_and_get_dataset,
+    apify_get_dataset_items,
+    apify_run_task,
+    apify_run_task_and_get_dataset,
+    apify_scrape_url,
+])
+
+# Scrape a single URL and get markdown content
+agent("Scrape https://docs.apify.com and summarize the page")
+
+# Run an Actor and fetch the results in one step
+agent("Use the website-content-crawler Actor to crawl https://example.com and return the results")
+
+# Run a saved task by ID
+agent("Run my Apify task user/my-daily-scrape and show the dataset results")
+```
+
+## Available Tools
+
+- **apify_run_actor** - Run any Apify Actor by ID with custom input and return run metadata.
+- **apify_get_dataset_items** - Fetch items from an Apify dataset with pagination (limit/offset).
+- **apify_run_actor_and_get_dataset** - Run an Actor and fetch its dataset results in one call.
+- **apify_run_task** - Run a saved Actor task with optional input overrides.
+- **apify_run_task_and_get_dataset** - Run a task and fetch its dataset results in one call.
+- **apify_scrape_url** - Scrape a single URL using the Website Content Crawler and return markdown. Supports three crawler engines: `cheerio` (fastest, no JS), `playwright:adaptive` (renders JS if needed), and `playwright:firefox` (best at avoiding blocking).
+
+## Configuration
+
+```bash
+APIFY_API_TOKEN=your_api_token_here    # Required
+```
+
+Get your API token at: [Apify Console > Settings > API & Integrations](https://console.apify.com/account/integrations)
+
+## Resources
+
+- [PyPI Package](https://pypi.org/project/strands-agents-tools/)
+- [GitHub Repository](https://github.com/strands-agents/tools)
+- [Apify Store](https://apify.com/store)
+- [Apify API Reference](https://docs.apify.com/api/v2)
