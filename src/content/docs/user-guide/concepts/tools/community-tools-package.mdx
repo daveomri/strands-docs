@@ -20,9 +20,21 @@ pip install strands-agents-tools
 
 Some tools require additional dependencies. Install the additional required dependencies in order to use the following tools:
 
+- apify
+```python
+pip install 'strands-agents-tools[apify]'
+```
 - mem0_memory
 ```python
 pip install 'strands-agents-tools[mem0_memory]'
+```
+- elasticsearch_memory
+```python
+pip install 'strands-agents-tools[elasticsearch-memory]'
+```
+- mongodb_memory
+```python
+pip install 'strands-agents-tools[mongodb-memory]'
 ```
 - local_chromium_browser
 ```python
@@ -52,6 +64,10 @@ pip install 'strands-agents-tools[rss]'
 ```python
 pip install 'strands-agents-tools[use_computer]'
 ```
+- twelvelabs
+```python
+pip install 'strands-agents-tools[twelvelabs]'
+```
 
 ## Available Tools
 
@@ -60,6 +76,8 @@ pip install 'strands-agents-tools[use_computer]'
 - [`memory`](https://github.com/strands-agents/tools/blob/main/src/strands_tools/memory.py): Agent memory persistence in Amazon Bedrock Knowledge Bases
 - [`agent_core_memory`](https://github.com/strands-agents/tools/blob/main/src/strands_tools/agent_core_memory.py): Integration with Amazon Bedrock Agent Core Memory
 - [`mem0_memory`](https://github.com/strands-agents/tools/blob/main/src/strands_tools/mem0_memory.py): Agent memory and personalization built on top of [Mem0](https://mem0.ai)
+- [`elasticsearch_memory`](https://github.com/strands-agents/tools/blob/main/src/strands_tools/elasticsearch_memory.py): Agent memory backed by Elasticsearch with vector search
+- [`mongodb_memory`](https://github.com/strands-agents/tools/blob/main/src/strands_tools/mongodb_memory.py): Agent memory backed by MongoDB Atlas with vector search
 
 #### File Operations
 - [`editor`](https://github.com/strands-agents/tools/blob/main/src/strands_tools/editor.py): File editing operations like line edits, search, and undo
@@ -79,9 +97,17 @@ pip install 'strands-agents-tools[use_computer]'
 
 #### Web & Network
 - [`http_request`](https://github.com/strands-agents/tools/blob/main/src/strands_tools/http_request.py): Make API calls, fetch web data, and call local HTTP servers
+- [`tavily_search`](https://github.com/strands-agents/tools/blob/main/src/strands_tools/tavily.py): Search the web using Tavily's AI-powered search API
+- [`tavily_extract`](https://github.com/strands-agents/tools/blob/main/src/strands_tools/tavily.py): Extract clean, structured content from web pages using Tavily
+- [`tavily_crawl`](https://github.com/strands-agents/tools/blob/main/src/strands_tools/tavily.py): Crawl websites with configurable depth and breadth using Tavily
+- [`tavily_map`](https://github.com/strands-agents/tools/blob/main/src/strands_tools/tavily.py): Map website structure and discover URLs using Tavily
+- [`exa_search`](https://github.com/strands-agents/tools/blob/main/src/strands_tools/exa.py): Neural and keyword search across the web using Exa
+- [`exa_get_contents`](https://github.com/strands-agents/tools/blob/main/src/strands_tools/exa.py): Retrieve clean page contents from URLs using Exa
+- [`bright_data`](https://github.com/strands-agents/tools/blob/main/src/strands_tools/bright_data.py): Web scraping and search using Bright Data's scraping APIs
 - [`slack`](https://github.com/strands-agents/tools/blob/main/src/strands_tools/slack.py): Slack integration with real-time events, API access, and message sending
 - [`browser`](https://github.com/strands-agents/tools/blob/main/src/strands_tools/browser/browser.py): Automate web browser interactions
 - [`rss`](https://github.com/strands-agents/tools/blob/main/src/strands_tools/rss.py): Manage and process RSS feeds
+- [`mcp_client`](https://github.com/strands-agents/tools/blob/main/src/strands_tools/mcp_client.py): Dynamically connect to MCP servers and invoke their tools at runtime
 
 #### Multi-modal
 - [`generate_image_stability`](https://github.com/strands-agents/tools/blob/main/src/strands_tools/generate_image_stability.py): Create images with Stability AI
@@ -90,6 +116,8 @@ pip install 'strands-agents-tools[use_computer]'
 - [`nova_reels`](https://github.com/strands-agents/tools/blob/main/src/strands_tools/nova_reels.py): Create AI generated videos with Nova Reels on Amazon Bedrock
 - [`speak`](https://github.com/strands-agents/tools/blob/main/src/strands_tools/speak.py): Generate speech from text using macOS say command or Amazon Polly
 - [`diagram`](https://github.com/strands-agents/tools/blob/main/src/strands_tools/diagram.py): Create cloud architecture and UML diagrams
+- [`search_video`](https://github.com/strands-agents/tools/blob/main/src/strands_tools/search_video.py): Search through video content using TwelveLabs
+- [`chat_video`](https://github.com/strands-agents/tools/blob/main/src/strands_tools/chat_video.py): Chat with video content using TwelveLabs
 
 #### AWS Services
 - [`use_aws`](https://github.com/strands-agents/tools/blob/main/src/strands_tools/use_aws.py): Interact with AWS services
